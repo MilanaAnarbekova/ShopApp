@@ -1,4 +1,4 @@
-package com.mrflaitx.shoppingapp40.data.app
+package com.mrflaitx.shoppingapp40.di.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

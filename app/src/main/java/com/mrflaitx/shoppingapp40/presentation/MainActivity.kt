@@ -8,7 +8,10 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.mrflaitx.shoppingapp40.R
 import com.mrflaitx.shoppingapp40.databinding.ActivityMainBinding
 import com.mrflaitx.shoppingapp40.domain.entity.ShopItem
+import dagger.hilt.EntryPoint
 
+
+@EntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val viewModel: MainViewModel by viewModels()

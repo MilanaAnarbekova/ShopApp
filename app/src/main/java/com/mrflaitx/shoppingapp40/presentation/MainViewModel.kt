@@ -7,8 +7,11 @@ import com.mrflaitx.shoppingapp40.domain.usecases.AddShopItemUseCase
 import com.mrflaitx.shoppingapp40.domain.usecases.EditShopItemUseCase
 import com.mrflaitx.shoppingapp40.domain.usecases.GetShopListUseCase
 import com.mrflaitx.shoppingapp40.domain.usecases.RemoveShopItemUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel: ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor() : ViewModel( ){
 
     private val repository = ShopListRepositoryImpl()
 
