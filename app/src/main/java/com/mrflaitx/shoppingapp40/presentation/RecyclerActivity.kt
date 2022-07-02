@@ -6,13 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.mrflaitx.shoppingapp40.R
 import com.mrflaitx.shoppingapp40.databinding.ActivityRecyclerBinding
 import com.mrflaitx.shoppingapp40.domain.entity.ShopItem
-
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+@AndroidEntryPoint
 class RecyclerActivity : AppCompatActivity(R.layout.activity_recycler) {
 
     private val viewModel: MainViewModel by viewModels()
@@ -60,11 +63,14 @@ class RecyclerActivity : AppCompatActivity(R.layout.activity_recycler) {
         itemTouchHelper.attachToRecyclerView(binding.recycler)
     }
 
-    private fun initAdapter() {
+    private fun initAdapter(){
         binding.recycler.adapter = adapter
-        viewModel.getShopList().observe(this) {
-            adapter.initList(it)
+        lifecycleScope.launch {
+            viewModel.getShopList().observe(this@RecyclerActivity) {
+                adapter.initList(it)
+            }
         }
+
     }
 
     private val activityResult =

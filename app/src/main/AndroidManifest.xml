@@ -4,7 +4,7 @@
     package="com.mrflaitx.shoppingapp40">
 
     <application
-        android:name="com.mrflaitx.shoppingapp40.di.app.Application"
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

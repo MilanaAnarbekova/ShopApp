@@ -8,6 +8,7 @@
 
     <EditText
         android:id="@+id/et_name"
+        android:hint="Enter name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="60dp"
@@ -19,6 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="60dp"
+        android:inputType="number"
+        android:hint="Enter count"
         app:layout_constraintTop_toBottomOf="@id/et_name" />
 
     <com.google.android.material.button.MaterialButton

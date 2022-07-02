@@ -5,17 +5,16 @@ import com.mrflaitx.shoppingapp40.domain.entity.ShopItem
 
 interface ShopListRepository {
 
-    fun addShopItem(shopItem: ShopItem)
+    suspend fun addShopItem(shopItem: ShopItem)
 
-    fun removeShopItem(shopItem: ShopItem)
+    suspend fun removeShopItem(shopItem: ShopItem)
 
-    fun editShopItem(shopItem: ShopItem)
+    suspend fun editShopItem(shopItem: ShopItem)
 
-    fun getShopItem(shopItemId: Int): ShopItem
+    fun getShopItem(shopItem: ShopItem)
 
     // refactor
-    fun getShopList(): LiveData<List<ShopItem>>
-
+    suspend fun getShopList(): LiveData<List<ShopItem>>
 
 
 }

@@ -1,4 +1,4 @@
-package com.mrflaitx.shoppingapp40.app
+package com.mrflaitx.shoppingapp40
 
 import android.app.Application
 import androidx.room.Room

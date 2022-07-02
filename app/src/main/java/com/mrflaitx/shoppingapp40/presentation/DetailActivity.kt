@@ -7,7 +7,9 @@ import android.widget.Toast
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.mrflaitx.shoppingapp40.R
 import com.mrflaitx.shoppingapp40.databinding.ActivityDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
 
     private val binding: ActivityDetailBinding by viewBinding(ActivityDetailBinding::bind)
@@ -20,9 +22,10 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
     private fun initListener() {
         binding.btnAddItem.setOnClickListener {
             if (binding.etName.text.toString().isEmpty()
-                && binding.etCount.text.toString().isEmpty()){
+                && binding.etCount.text.toString().isEmpty()
+            ) {
                 Toast.makeText(this, "Your Item is Empty!", Toast.LENGTH_SHORT).show()
-            }else {
+            } else {
                 val intent = Intent()
                 intent.putExtra("name", binding.etName.text.toString())
                 intent.putExtra("count", binding.etCount.text.toString())

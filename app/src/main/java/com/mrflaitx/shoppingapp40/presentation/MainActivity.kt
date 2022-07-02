@@ -4,21 +4,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.mrflaitx.shoppingapp40.R
 import com.mrflaitx.shoppingapp40.databinding.ActivityMainBinding
 import com.mrflaitx.shoppingapp40.domain.entity.ShopItem
 import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.EnumSet.of
+import java.util.List.of
 
 
-@EntryPoint
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
-    private val viewModel: MainViewModel by viewModels()
+    private lateinit var viewModel : MainViewModel
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initListeners()
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
     }
 
     private fun initListeners() {
@@ -54,9 +59,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 )
             }
 
-            btn.setOnClickListener {
-                Log.e("TAG", "initListeners: ${viewModel.getShopList()}")
-            }
         }
     }
 }

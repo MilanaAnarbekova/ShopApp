@@ -2,8 +2,9 @@ package com.mrflaitx.shoppingapp40.domain.usecases
 
 import com.mrflaitx.shoppingapp40.domain.entity.ShopItem
 import com.mrflaitx.shoppingapp40.domain.repository.ShopListRepository
+import javax.inject.Inject
 
-class GetShopListUseCase(private val repository: ShopListRepository) {
+class GetShopListUseCase @Inject constructor(private val repository: ShopListRepository) {
 
-    fun getShopList() = repository.getShopList()
+     suspend fun getShopList() = repository.getShopList()
 }
